@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "401316157945",
+    "project_id": "team-11-81d00",
+    "storage_bucket": "team-11-81d00.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:401316157945:android:c885c3baff49ae0fdb0528",
+        "android_client_info": {
+          "package_name": "com.hacka.team11"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "401316157945-567nkicih47tas3jmiu8tva72kndjjid.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_QZqMf6lvqXOFiEzoLm9Up6Nf2oWpP3I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "401316157945-567nkicih47tas3jmiu8tva72kndjjid.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
