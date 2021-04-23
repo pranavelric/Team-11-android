@@ -1,10 +1,12 @@
-package com.alarm.momentix.utils
+package com.hacka.team11.utils
 
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
+import java.io.IOException
+import java.io.InputStream
 
 
 fun checkAboveOreo(): Boolean {
@@ -37,4 +39,17 @@ fun Context.rateUs() {
         )
     }
 
+}
+
+
+
+
+fun inputStreamToString(inputStream: InputStream): String {
+    return try {
+        val bytes = ByteArray(inputStream.available())
+        inputStream.read(bytes, 0, bytes.size)
+        String(bytes)
+    } catch (e: IOException) {
+        null
+    }.toString()
 }
