@@ -23,6 +23,11 @@ class MatchAdapter() :
             binding.setVariable(BR.match, match)
             binding.executePendingBindings()
 
+            binding.matchCard.setOnClickListener {
+                onItemClickListener?.let { click ->
+                    click(position)
+                }
+            }
 
         }
     }
@@ -60,10 +65,10 @@ class MatchAdapter() :
     }
 
 
-//    private var onItemClickListener: ((Alarm) -> Unit)? = null
-//    fun setOnItemClickListener(listener: (Alarm) -> Unit) {
-//        onItemClickListener = listener
-//    }
+    private var onItemClickListener: ((position:Int) -> Unit)? = null
+    fun setOnItemClickListener(listener: (position:Int) -> Unit) {
+        onItemClickListener = listener
+    }
 
 
 }

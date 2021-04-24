@@ -70,7 +70,7 @@ fun Context.share(link: String?, type: String) {
     shareIntent.type="text/plain"
     shareIntent.putExtra(
         Intent.EXTRA_TEXT,
-        "See this amazing alarm app: http://www.amazon.com/gp/mas/dl/android?p=$packageName"
+        "See this amazing app: playsotre link=$packageName"
     )
 
     this.startActivity(Intent.createChooser(shareIntent, "Share to"))

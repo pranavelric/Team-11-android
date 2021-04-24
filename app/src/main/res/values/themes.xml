@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.Team11" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimary">@color/primary_color</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -11,7 +11,11 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:navigationBarColor">@color/primary_color</item>
+        <item name="android:windowIsTranslucent">true</item>
+
     </style>
 
 
@@ -19,6 +23,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
+
     <style name="loginParent" parent="parent">
         <item name="android:layout_height">match_parent</item>
         <item name="android:background">@color/loginBkColor</item>
@@ -43,7 +48,6 @@
     <style name="linearParent" parent="parent">
         <item name="android:orientation">vertical</item>
     </style>
-
 
 
     <style name="modifiedEditText" parent="parent">

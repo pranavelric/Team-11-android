@@ -5,6 +5,8 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
+import com.alarm.momentix.utils.toast
+import com.hacka.team11.BuildConfig
 import java.io.IOException
 import java.io.InputStream
 
@@ -18,30 +20,34 @@ fun checkAboveKitkat(): Boolean {
 }
 
 fun checkAboveLollipop(): Boolean {
-    return   Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP
+    return Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP
 }
 
 fun Context.rateUs() {
-
     try {
-        startActivity(
+        this.startActivity(
             Intent(
                 Intent.ACTION_VIEW,
-                Uri.parse("amzn://apps/android?p=$packageName")
+                Uri.parse(
+                    ("market://details?id=$packageName")
+                )
             )
         )
-    } catch (e: ActivityNotFoundException) {
-        startActivity(
-            Intent(
-                Intent.ACTION_VIEW,
-                Uri.parse("http://www.amazon.com/gp/mas/dl/android?p=$packageName")
+    } catch (e1: ActivityNotFoundException) {
+        try {
+            this.startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("http://play.google.com/store/apps/details?id=$packageName")
+                )
             )
-        )
+        } catch (e2: ActivityNotFoundException) {
+
+            toast("You don't have any app that can open this link",)
+        }
     }
 
 }
-
-
 
 
 fun inputStreamToString(inputStream: InputStream): String {

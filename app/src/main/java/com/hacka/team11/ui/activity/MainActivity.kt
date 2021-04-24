@@ -35,14 +35,11 @@ class MainActivity : AppCompatActivity() {
 
 
     private lateinit var binding: ActivityMainBinding
-    private var match_list = ArrayList<MatchModel>()
+    var match_list = ArrayList<MatchModel>()
 
     val navController: NavController by lazy {
         findNavController(R.id.nav_host_fragment_container)
     }
-
-//    @Inject
-//    lateinit var matchAdapter: MatchAdapter
 
     lateinit var firebaseAuth: FirebaseAuth
     lateinit var firebaseAuthStateListener: FirebaseAuth.AuthStateListener

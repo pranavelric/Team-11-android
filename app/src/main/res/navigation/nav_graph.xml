@@ -43,7 +43,34 @@
         android:id="@+id/mainFragment"
         android:name="com.hacka.team11.ui.main.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+
+
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+
+
+            android:id="@+id/action_mainFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+
+
+
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+
+
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"
+
+            android:id="@+id/action_mainFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.hacka.team11.ui.login.LoginFragment"
@@ -67,6 +94,9 @@
             app:popExitAnim="@anim/slide_out_right"
 
 
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"
+
             android:id="@+id/action_loginFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
@@ -83,6 +113,10 @@
             app:popExitAnim="@anim/slide_out_right"
 
 
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"
+
+
             android:id="@+id/action_registerFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
         <action
@@ -93,7 +127,17 @@
             app:popExitAnim="@anim/slide_out_right"
 
 
+
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"
+
+
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.hacka.team11.ui.settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
 </navigation>

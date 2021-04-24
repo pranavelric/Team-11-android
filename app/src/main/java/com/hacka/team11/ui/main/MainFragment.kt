@@ -3,58 +3,131 @@ package com.hacka.team11.ui.main
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import com.alarm.momentix.utils.getStatusBarHeight
+import com.alarm.momentix.utils.share
+import com.alarm.momentix.utils.toast_long
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.hacka.team11.R
+import com.hacka.team11.adapters.MatchAdapter
+import com.hacka.team11.databinding.FragmentLoginBinding
+import com.hacka.team11.databinding.FragmentMainBinding
+import com.hacka.team11.ui.activity.MainActivity
+import com.hacka.team11.utils.checkAboveKitkat
+import com.hacka.team11.utils.rateUs
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [MainFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+@AndroidEntryPoint
 class MainFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+
+    @Inject
+    lateinit var matchAdapter: MatchAdapter
+
+    private lateinit var binding: FragmentMainBinding
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false)
+        binding = FragmentMainBinding.inflate(inflater, container, false)
+        setViews()
+
+
+        binding.toolbar.setOnMenuItemClickListener {
+            onOptionsItemSelected(it)
+        }
+        setHasOptionsMenu(true)
+        setSlidingBehaviour()
+        setClickListeners()
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment MainFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            MainFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun setClickListeners() {
+
+        matchAdapter.setOnItemClickListener {position->
+            context?.toast_long("${position} clicked")
+        }
+
     }
+
+    private fun setViews() {
+        binding.fragmentListamatchRecylerView.apply {
+            adapter = matchAdapter
+        }
+        matchAdapter.submitList((activity as MainActivity).match_list)
+
+    }
+
+
+    override fun onStart() {
+        super.onStart()
+        (activity as MainActivity).window.setNavigationBarColor(getResources().getColor(R.color.white))
+    }
+
+
+    private fun setSlidingBehaviour() {
+        val behavior = BottomSheetBehavior.from(binding.bottomSheet)
+        if (checkAboveKitkat()) {
+
+            behavior.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
+                override fun onStateChanged(bottomSheet: View, newState: Int) {
+                    if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
+                        binding.bottomSheet.setPadding(0, 0, 0, 0)
+
+                    } else if (newState == BottomSheetBehavior.STATE_EXPANDED) {
+                        activity?.getStatusBarHeight()?.let { bottomSheet.setPadding(0, it, 0, 0) }
+
+                    }
+                }
+
+                override fun onSlide(bottomSheet: View, slideOffset: Float) {
+
+
+                    bottomSheet.setPadding(
+                        0,
+                        (slideOffset * activity?.getStatusBarHeight()!!).toInt(),
+                        0,
+                        0
+                    )
+                }
+            })
+        }
+
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when (item.itemId) {
+            R.id.action_setting -> {
+                findNavController().navigate(R.id.action_mainFragment_to_settingsFragment)
+                return true
+            }
+            R.id.action_rate -> {
+
+                activity?.rateUs()
+                return true
+            }
+            R.id.action_share -> {
+                activity?.share("Playstore link will be inserted here ", "text")
+                return true
+            }
+            R.id.action_logout->{
+                (activity as MainActivity).firebaseAuth.signOut()
+                findNavController().navigate(R.id.action_mainFragment_to_loginFragment)
+                return true
+            }
+            else -> {
+                return false
+            }
+        }
+    }
+
 }

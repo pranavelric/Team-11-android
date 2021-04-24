@@ -29,11 +29,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_22sdp"
 
-        app:boxStrokeColor="@color/black"
+        app:boxStrokeColor="@color/primary_color"
         app:boxBackgroundColor="@android:color/transparent"
         app:boxCornerRadiusBottomEnd="@dimen/_8sdp"
         app:boxCornerRadiusTopEnd="@dimen/_8sdp"
-        app:boxStrokeWidthFocused="@dimen/_4sdp"
+        app:boxStrokeWidthFocused="@dimen/_2sdp"
 
         >
 

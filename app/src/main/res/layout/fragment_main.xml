@@ -1,14 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.main.MainFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <FrameLayout
+        android:id="@+id/timeContainer"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_400sdp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@drawable/temp2" />
+
+        <View
+            android:id="@+id/tempView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.3"
+            android:background="@color/black" />
+
+        <TextClock
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:format12Hour="hh:mm:ss a"
+            android:gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
+
+    </FrameLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottomSheet"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@color/white_variant"
+        android:orientation="vertical"
+        app:behavior_hideable="false"
+        app:behavior_peekHeight="@dimen/_340sdp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
-</FrameLayout>
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:layout_marginTop="@dimen/_1sdp"
+            android:elevation="@dimen/_1sdp"
+            android:fitsSystemWindows="false"
+            app:elevation="@dimen/_1sdp"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="center"
+                app:layout_scrollFlags="enterAlways"
+                app:menu="@menu/home_menu"
+                app:title="Team11">
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fragment_listamatch_recylerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:clipToPadding="true"
+            android:paddingBottom="@dimen/_10sdp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/appbarLayout"
+            app:layout_constraintVertical_bias="0.0"
+            tools:layout_editor_absoluteX="0dp"
+            tools:listitem="@layout/matchitem">
+
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <LinearLayout
+            android:id="@+id/empty_list_bg"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/primary_color"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/appbarLayout"
+
+            >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_empty" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="No match going on currently"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16sdp" />
+
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
