@@ -1,4 +1,4 @@
-package com.hacka.team11
+package com.hacka.team11.ui.activity
 
 import android.content.Context
 import android.content.Intent
@@ -13,12 +13,13 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.alarm.momentix.utils.setFullScreenForNotch
 import com.alarm.momentix.utils.setFullScreenWithBtmNav
+import com.alarm.momentix.utils.toast
 import com.facebook.AccessToken
 import com.facebook.AccessTokenTracker
 import com.facebook.CallbackManager
-import com.facebook.FacebookSdk
 import com.google.firebase.auth.FirebaseAuth
 import com.google.gson.Gson
+import com.hacka.team11.R
 import com.hacka.team11.data.local.model.MatchModel
 import com.hacka.team11.databinding.ActivityMainBinding
 import com.hacka.team11.utils.inputStreamToString
@@ -59,27 +60,14 @@ class MainActivity : AppCompatActivity() {
 
 
 
-//        firebaseAuthStateListener = FirebaseAuth.AuthStateListener {
-//            val user = it.currentUser
-//            if (user != null) {
-//                Log.d("RRR", "onCreate: login")
-//            } else {
-//                Log.d("RRR", "onCreate: logout")
-//            }
-//        }
-
-//        accessTokenTracker = object : AccessTokenTracker() {
-//            override fun onCurrentAccessTokenChanged(
-//                oldAccessToken: AccessToken?,
-//                currentAccessToken: AccessToken?
-//            ) {
-////                if (currentAccessToken == null)
-//////                    firebaseAuth.signOut()
-////            }
-//            }
-//        }
-
-
+        firebaseAuthStateListener = FirebaseAuth.AuthStateListener {
+            val user = it.currentUser
+            if (user != null) {
+                toast("User logged in")
+            } else {
+                toast("User is logged out")
+            }
+        }
 
 
         val fields: Array<Field> = R.raw::class.java.declaredFields
@@ -95,14 +83,14 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
         setFullScreenWithBtmNav()
         setFullScreenForNotch()
-//        firebaseAuth.addAuthStateListener(firebaseAuthStateListener)
+        firebaseAuth.addAuthStateListener(firebaseAuthStateListener)
 
     }
 
     override fun onStop() {
         super.onStop()
-//        if (firebaseAuthStateListener != null)
-//            firebaseAuth.removeAuthStateListener(firebaseAuthStateListener)
+        if (firebaseAuthStateListener != null)
+            firebaseAuth.removeAuthStateListener(firebaseAuthStateListener)
     }
 
     override fun onSupportNavigateUp(): Boolean {

@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.alarm.momentix.utils.setFullScreen
 import com.alarm.momentix.utils.setFullScreenForNotch
-import com.hacka.team11.MainActivity
+import com.hacka.team11.ui.activity.MainActivity
 import com.hacka.team11.R
 import com.hacka.team11.databinding.FragmentSplashBinding
 import com.hacka.team11.utils.CoroutinesHelper
@@ -23,14 +23,22 @@ class SplashFragment : Fragment() {
     ): View? {
         val binding: FragmentSplashBinding =
             FragmentSplashBinding.inflate(inflater, container, false)
+        checkUserLogined()
+        return binding.root
+    }
 
+    private fun checkUserLogined() {
 
-        CoroutinesHelper.delayWithMain(2000L) {
-            findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
+        if ((activity as MainActivity).firebaseAuth.currentUser != null) {
+            CoroutinesHelper.delayWithMain(2000L) {
+                findNavController().navigate(R.id.action_splashFragment_to_mainFragment)
+            }
+        } else {
+            CoroutinesHelper.delayWithMain(2000L) {
+                findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
+            }
         }
 
-
-        return binding.root
     }
 
     override fun onStart() {
