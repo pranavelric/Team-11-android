@@ -63,9 +63,9 @@ class MainActivity : AppCompatActivity() {
         firebaseAuthStateListener = FirebaseAuth.AuthStateListener {
             val user = it.currentUser
             if (user != null) {
-                toast("User logged in")
+//                toast("User logged in")
             } else {
-                toast("User is logged out")
+//                toast("User is logged out")
             }
         }
 

@@ -1,6 +1,5 @@
 package com.hacka.team11.ui.login
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,7 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.alarm.momentix.utils.*
+import com.alarm.momentix.utils.gone
+import com.alarm.momentix.utils.toast
+import com.alarm.momentix.utils.toast_long
+import com.alarm.momentix.utils.visible
 import com.facebook.AccessToken
 import com.facebook.FacebookCallback
 import com.facebook.FacebookException
@@ -16,9 +18,9 @@ import com.facebook.login.LoginResult
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.*
-import com.hacka.team11.ui.activity.MainActivity
 import com.hacka.team11.R
 import com.hacka.team11.databinding.FragmentLoginBinding
+import com.hacka.team11.ui.activity.MainActivity
 import java.util.concurrent.TimeUnit
 
 
@@ -78,7 +80,7 @@ class LoginFragment : Fragment() {
                 }
 
                 override fun onError(exception: FacebookException) {
-                    Log.d("RRR", "onError: ")
+                    context?.toast_long("Failed to login")
                 }
             })
 
