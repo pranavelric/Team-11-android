@@ -7,10 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.alarm.momentix.utils.gone
-import com.alarm.momentix.utils.toast
-import com.alarm.momentix.utils.toast_long
-import com.alarm.momentix.utils.visible
+import com.hacka.team11.utils.gone
+import com.hacka.team11.utils.toast
+import com.hacka.team11.utils.toast_long
+import com.hacka.team11.utils.visible
 import com.facebook.AccessToken
 import com.facebook.FacebookCallback
 import com.facebook.FacebookException

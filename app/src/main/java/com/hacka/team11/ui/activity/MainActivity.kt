@@ -11,10 +11,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
-import com.alarm.momentix.utils.setFullScreenForNotch
-import com.alarm.momentix.utils.setFullScreenWithBtmNav
-import com.alarm.momentix.utils.toast
-import com.facebook.AccessToken
+import com.hacka.team11.utils.setFullScreenForNotch
+import com.hacka.team11.utils.setFullScreenWithBtmNav
 import com.facebook.AccessTokenTracker
 import com.facebook.CallbackManager
 import com.google.firebase.auth.FirebaseAuth

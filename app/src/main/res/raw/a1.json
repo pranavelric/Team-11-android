@@ -8,7 +8,7 @@
     "city": "Delhi",
     "competition": "IPL",
     "dates": [
-      "2008-04-19"
+      "2008-04-19T00:00:00.000Z"
     ],
     "gender": "male",
     "match_type": "T20",

@@ -5,8 +5,6 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
-import com.alarm.momentix.utils.toast
-import com.hacka.team11.BuildConfig
 import java.io.IOException
 import java.io.InputStream
 

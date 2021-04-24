@@ -36,7 +36,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@{match.info.competition}"
-                    android:textSize="7sp"
+                    android:textSize="10sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="Competetion TILTE" />
@@ -47,6 +47,15 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_baseline_notifications_24"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Time remaingin"
+                    app:layout_constraintEnd_toStartOf="@id/bell"
+                    app:layout_constraintStart_toEndOf="@id/competetion_name"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <View
@@ -63,7 +72,7 @@
                     android:layout_width="@dimen/_2sdp"
                     android:layout_height="0dp"
                     android:layout_marginTop="@dimen/_10sdp"
-                 android:background="@color/green"
+                    android:background="@color/green"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/line" />
@@ -77,9 +86,9 @@
                     android:text="@{match.info.teams.get(0)}"
                     android:textColor="@color/black"
                     android:textSize="12sp"
+                    app:layout_constraintEnd_toStartOf="@id/vs"
                     app:layout_constraintStart_toEndOf="@id/team1_btn"
                     app:layout_constraintTop_toBottomOf="@+id/line"
-                    app:layout_constraintEnd_toStartOf="@id/vs"
                     tools:text="Team 1" />
 
                 <View
@@ -87,9 +96,9 @@
                     android:layout_width="@dimen/_2sdp"
                     android:layout_height="0dp"
                     android:layout_marginTop="@dimen/_10sdp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:background="@color/primary_color"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/line" />
 
                 <TextView
@@ -98,12 +107,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_3sdp"
-                    android:text="@{match.info.teams.get(0)}"
+                    android:text="@{match.info.teams.get(1)}"
                     android:textColor="@color/black"
                     android:textSize="12sp"
                     app:layout_constraintEnd_toStartOf="@id/team2_btn"
-                    app:layout_constraintTop_toBottomOf="@+id/line"
                     app:layout_constraintStart_toEndOf="@id/vs"
+                    app:layout_constraintTop_toBottomOf="@+id/line"
                     tools:text="Team 2" />
 
                 <TextView
@@ -117,10 +126,10 @@
                     android:textSize="12sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toStartOf="@id/team2_name"
-                    app:layout_constraintTop_toBottomOf="@+id/line"
                     app:layout_constraintStart_toEndOf="@id/team1_name"
+                    app:layout_constraintTop_toBottomOf="@+id/line"
 
-                 />
+                    />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

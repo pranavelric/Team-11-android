@@ -11,6 +11,7 @@ import com.hacka.team11.BR
 import com.hacka.team11.R
 import com.hacka.team11.data.local.model.MatchModel
 import com.hacka.team11.databinding.MatchitemBinding
+import com.hacka.team11.utils.getForamttedTimeFromStrgin
 
 class MatchAdapter() :
     ListAdapter<MatchModel, MatchAdapter.MyMatchViewHolder>(MatchItemDiffCallback()) {
@@ -23,9 +24,13 @@ class MatchAdapter() :
             binding.setVariable(BR.match, match)
             binding.executePendingBindings()
 
+            binding.time.text = getForamttedTimeFromStrgin(match.info.dates.getOrElse(0,){
+                ""
+            })
+
             binding.matchCard.setOnClickListener {
                 onItemClickListener?.let { click ->
-                    click(position)
+                    click(position,match)
                 }
             }
 
@@ -65,8 +70,8 @@ class MatchAdapter() :
     }
 
 
-    private var onItemClickListener: ((position:Int) -> Unit)? = null
-    fun setOnItemClickListener(listener: (position:Int) -> Unit) {
+    private var onItemClickListener: ((position: Int, match:MatchModel) -> Unit)? = null
+    fun setOnItemClickListener(listener: (position: Int,match:MatchModel) -> Unit) {
         onItemClickListener = listener
     }
 

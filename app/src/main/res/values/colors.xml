@@ -10,6 +10,7 @@
     <color name="white_variant">#FEFFFF</color>
     <color name="red">#E53935</color>
     <color name="gray">#DDDDDD</color>
+    <color name="dark_gray">#9E9C9C</color>
     <color name="light_gray">#F8F8F8</color>
     <color name="green">#43A047</color>
     <color name="primary_color">#6d95fa</color>
@@ -17,6 +18,7 @@
     <!--colors for  ui-->
     <color name="whiteTextColor">#fff</color>
     <color name="primaryTextColor">#2661FA</color>
+    <color name="primary_color_dark">#2661FA</color>
     <color name="loginBkColor">#f0f0f0</color>
 
     <!--colros for card-->

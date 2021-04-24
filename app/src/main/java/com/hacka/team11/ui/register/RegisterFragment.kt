@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.alarm.momentix.utils.toast_long
+import com.hacka.team11.utils.toast_long
 import com.hacka.team11.R
 import com.hacka.team11.databinding.FragmentRegisterBinding
 import com.hacka.team11.ui.activity.MainActivity

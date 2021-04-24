@@ -18,6 +18,13 @@
 
     </style>
 
+    <style name="roundedImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeBottomLeft">@dimen/_18sdp</item>
+        <item name="cornerSizeBottomRight">@dimen/_18sdp</item>
+
+    </style>
+
 
     <style name="parent">
         <item name="android:layout_width">match_parent</item>

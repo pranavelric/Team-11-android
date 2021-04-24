@@ -1,23 +1,19 @@
 package com.hacka.team11.ui.main
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.alarm.momentix.utils.getStatusBarHeight
-import com.alarm.momentix.utils.share
-import com.alarm.momentix.utils.toast_long
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.hacka.team11.R
 import com.hacka.team11.adapters.MatchAdapter
-import com.hacka.team11.databinding.FragmentLoginBinding
 import com.hacka.team11.databinding.FragmentMainBinding
 import com.hacka.team11.ui.activity.MainActivity
-import com.hacka.team11.utils.checkAboveKitkat
-import com.hacka.team11.utils.rateUs
+import com.hacka.team11.utils.*
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -51,8 +47,13 @@ class MainFragment : Fragment() {
 
     private fun setClickListeners() {
 
-        matchAdapter.setOnItemClickListener {position->
-            context?.toast_long("${position} clicked")
+        matchAdapter.setOnItemClickListener {position,match->
+
+            val bundle = Bundle().apply {
+                putSerializable(Constants.MATCH_OBJ, match)
+            }
+
+            findNavController().navigate(R.id.action_mainFragment_to_matchDetailsFragment,bundle)
         }
 
     }

@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.alarm.momentix.utils.setFullScreen
-import com.alarm.momentix.utils.setFullScreenForNotch
+import com.hacka.team11.utils.setFullScreen
+import com.hacka.team11.utils.setFullScreenForNotch
 import com.hacka.team11.ui.activity.MainActivity
 import com.hacka.team11.R
 import com.hacka.team11.databinding.FragmentSplashBinding

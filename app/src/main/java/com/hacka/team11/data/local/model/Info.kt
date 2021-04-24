@@ -1,5 +1,7 @@
 package com.hacka.team11.data.local.model
 
+import java.io.Serializable
+
 data class Info(
     val city: String,
     val competition: String,
@@ -13,4 +15,4 @@ data class Info(
     val toss: Toss,
     val umpires: List<String>,
     val venue: String
-)
+):Serializable
