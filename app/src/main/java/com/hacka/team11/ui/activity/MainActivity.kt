@@ -72,6 +72,8 @@ class MainActivity : AppCompatActivity() {
             val mmatchModel: MatchModel = Gson().fromJson(json, MatchModel::class.java)
             match_list.add(mmatchModel)
         }
+
+//        Log.d("RRR", "onCreate:${match_list} ")
     }
 
     override fun onStart() {

@@ -7,17 +7,16 @@
     android:layout_height="match_parent"
     tools:context=".ui.splash.SplashFragment">
 
-    <com.cunoraz.gifview.library.GifView
+
+    <ImageView
+        android:id="@+id/gif"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/gif"
-        app:gif="@drawable/splash"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:scaleY="2"
-        android:scaleX="2"
+        android:src="@drawable/ic_awrds_bg_2"
         />
 
     <TextView

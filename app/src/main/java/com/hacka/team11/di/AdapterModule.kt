@@ -1,6 +1,7 @@
 package com.hacka.team11.di
 
 import com.hacka.team11.adapters.MatchAdapter
+import com.hacka.team11.adapters.PlayerAdapter
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,4 +15,12 @@ class AdapterModule {
     fun providesMatchAdapter(): MatchAdapter {
         return MatchAdapter()
     }
+
+    @Provides
+    fun providesPlayerAdapter(): PlayerAdapter {
+        return PlayerAdapter()
+    }
+
+
+
 }

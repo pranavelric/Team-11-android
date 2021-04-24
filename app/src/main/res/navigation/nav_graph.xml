@@ -153,5 +153,21 @@
         android:id="@+id/matchDetailsFragment"
         android:name="com.hacka.team11.ui.matchDetails.MatchDetailsFragment"
         android:label="fragment_match_details"
-        tools:layout="@layout/fragment_match_details" />
+        tools:layout="@layout/fragment_match_details" >
+        <action
+
+
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+
+            android:id="@+id/action_matchDetailsFragment_to_createTeamFragment"
+            app:destination="@id/createTeamFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createTeamFragment"
+        android:name="com.hacka.team11.ui.matchDetails.createTeam.CreateTeamFragment"
+        android:label="fragment_create_team"
+        tools:layout="@layout/fragment_create_team" />
 </navigation>

@@ -46,7 +46,10 @@ class MatchDetailsFragment : Fragment() {
             val bundle = Bundle().apply {
                 putSerializable(Constants.MATCH_OBJ, match)
             }
-//            findNavController().navigate()
+            findNavController().navigate(
+                R.id.action_matchDetailsFragment_to_createTeamFragment,
+                bundle
+            )
 
         }
 
@@ -62,13 +65,14 @@ class MatchDetailsFragment : Fragment() {
         binding.textViewteamB.text = match?.info?.teams?.getOrElse(1) {
             ""
         }
-        binding.umpire1.text = "• "+match?.info?.umpires?.getOrElse(0) {
+        binding.umpire1.text = "• " + match?.info?.umpires?.getOrElse(0) {
             "No Umpire found"
         }
-        binding.umpire2.text ="• "+ match?.info?.umpires?.getOrElse(1) {
+        binding.umpire2.text = "• " + match?.info?.umpires?.getOrElse(1) {
             ""
         }
         binding.textViewVenue.text = match?.info?.venue
+
 
 
 
