@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.hacka.team11.R
 import com.hacka.team11.adapters.PlayerAdapter
 import com.hacka.team11.data.local.model.MatchModel
 import com.hacka.team11.data.local.model.Players
@@ -42,6 +44,7 @@ class CreateTeamFragment : Fragment() {
         }
     }
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -51,6 +54,7 @@ class CreateTeamFragment : Fragment() {
 
         setData()
         setClickListeners()
+        selected_players.clear()
 
         return binding.root
     }
@@ -135,6 +139,15 @@ class CreateTeamFragment : Fragment() {
     }
 
     private fun setClickListeners() {
+
+        binding.chooseTeam.setOnClickListener {
+            val bundle = Bundle().apply {
+                putSerializable(Constants.MATCH_OBJ, match)
+                putSerializable(Constants.SELCTED_PLAYERS, selected_players)
+            }
+            findNavController().navigate(R.id.action_createTeamFragment_to_liveMatchFragment,bundle)
+
+        }
 
     }
 

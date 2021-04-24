@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.MainFragment">
+
+    <FrameLayout
+        android:id="@+id/timeContainer"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_400sdp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@drawable/temp2" />
+
+        <View
+            android:id="@+id/tempView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.3"
+            android:background="@color/black" />
+
+
+
+    </FrameLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray"
+        android:orientation="vertical"
+        app:behavior_hideable="false"
+        app:behavior_peekHeight="@dimen/_340sdp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/result_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/_10sdp"
+            app:cardCornerRadius="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_10sdp">
+
+                <TextView
+                    android:id="@+id/winner_text"
+                    style="@style/headerText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Winner"
+                    android:textColor="@color/green"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/winner_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Winner team"
+                    android:textColor="@color/green"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+
+                    app:layout_constraintTop_toBottomOf="@id/winner_text" />
+
+                <TextView
+                    android:id="@+id/looser_text"
+                    style="@style/headerText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Loser"
+                    android:textColor="@color/red"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/looser_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Loser team"
+                    android:textColor="@color/red"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/looser_text"
+                    />
+
+
+
+                <TextView
+                    android:id="@+id/result_by"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="• Team won by 30 runs"
+                    android:textColor="@color/green"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/winner_name"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    />
+
+
+
+                <TextView
+                    android:id="@+id/player_of_match"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="• Man of the match"
+                    android:textColor="@color/green"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/result_by"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    />
+
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:padding="10sp"
+            android:id="@+id/match_info_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Innings 1"
+            style="@style/headerText"
+            android:textColor="@color/primary_color"
+            app:layout_constraintTop_toBottomOf="@id/result_card"
+            />
+<!--        <TextView-->
+<!--            android:padding="10sp"-->
+<!--            android:id="@+id/match_info"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text=""-->
+<!--            app:layout_constraintTop_toBottomOf="@id/match_info_title"-->
+<!--            />-->
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/match_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="true"
+                    android:paddingBottom="@dimen/_10sdp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="2"
+                    app:layout_constraintTop_toBottomOf="@id/match_info_title"
+                    tools:listitem="@layout/deliveryitem">
+                </androidx.recyclerview.widget.RecyclerView>
+
+
+        <TextView
+            android:padding="10sp"
+            android:id="@+id/match_info2_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Innings 2"
+            style="@style/headerText"
+            android:textColor="@color/primary_color"
+            app:layout_constraintTop_toBottomOf="@id/match_info"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/match_info2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="true"
+            android:paddingBottom="@dimen/_10sdp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+tools:itemCount="2"
+            app:layout_constraintTop_toBottomOf="@id/match_info2_title"
+            tools:listitem="@layout/deliveryitem">
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
+
+
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/fragment_listamatch_recylerView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:clipToPadding="true"-->
+<!--            android:paddingBottom="@dimen/_10sdp"-->
+<!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/appbarLayout"-->
+<!--            app:layout_constraintVertical_bias="0.0"-->
+<!--            tools:layout_editor_absoluteX="0dp"-->
+<!--            tools:listitem="@layout/matchitem">-->
+
+
+<!--        </androidx.recyclerview.widget.RecyclerView>-->
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

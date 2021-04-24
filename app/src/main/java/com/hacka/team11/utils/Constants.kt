@@ -8,8 +8,6 @@ object Constants {
     const val APP_THEME = "APP_THEME"
 
 
-
-
     const val CHANNEL_ID = "CHANNEL_ID"
     const val CHANNEL_DESC = "CHANNEL_DESC"
     const val CHANNEL_NAME = "CHANNEL_NAME"
@@ -24,4 +22,5 @@ object Constants {
     const val PERMISSION_CODE = 12345
 
     const val MATCH_OBJ = "MATCH_OBJ"
+    const val SELCTED_PLAYERS = "SELECTED_PLAYERS"
 }

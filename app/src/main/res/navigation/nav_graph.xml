@@ -169,5 +169,20 @@
         android:id="@+id/createTeamFragment"
         android:name="com.hacka.team11.ui.matchDetails.createTeam.CreateTeamFragment"
         android:label="fragment_create_team"
-        tools:layout="@layout/fragment_create_team" />
+        tools:layout="@layout/fragment_create_team" >
+        <action
+
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+
+            android:id="@+id/action_createTeamFragment_to_liveMatchFragment"
+            app:destination="@id/liveMatchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/liveMatchFragment"
+        android:name="com.hacka.team11.ui.matchDetails.liveMatch.LiveMatchFragment"
+        android:label="fragment_live_match"
+        tools:layout="@layout/fragment_live_match" />
 </navigation>

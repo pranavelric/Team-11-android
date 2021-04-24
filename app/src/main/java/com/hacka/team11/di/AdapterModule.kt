@@ -1,5 +1,6 @@
 package com.hacka.team11.di
 
+import com.hacka.team11.adapters.DeliveryAdapter
 import com.hacka.team11.adapters.MatchAdapter
 import com.hacka.team11.adapters.PlayerAdapter
 import dagger.Module
@@ -21,6 +22,10 @@ class AdapterModule {
         return PlayerAdapter()
     }
 
+    @Provides
+    fun providesDeliveryAdapter(): DeliveryAdapter {
+        return DeliveryAdapter()
+    }
 
 
 }

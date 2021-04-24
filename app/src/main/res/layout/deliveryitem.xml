@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="delivery"
+            type="com.hacka.team11.data.local.model.Deliveries" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/match_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        android:elevation="@dimen/_4sdp"
+        app:cardCornerRadius="@dimen/_5sdp"
+        app:rippleColor="@color/primary_color">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/top_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_10sdp"
+
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/over_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Over"
+                    android:textSize="10sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    />
+
+                <TextView
+                    android:id="@+id/total_run"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="10"
+                    android:textSize="10sp"
+                    />
+
+                <TextView
+                    android:id="@+id/extras"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Extras"
+                    app:layout_constraintEnd_toStartOf="@id/total_run"
+                    app:layout_constraintStart_toEndOf="@id/over_name"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/line"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@color/gray"
+                    app:layout_constraintTop_toBottomOf="@id/over_name" />
+
+
+                <View
+                    android:id="@+id/team1_btn"
+                    android:layout_width="@dimen/_2sdp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@color/green"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/line" />
+
+                <TextView
+                    android:id="@+id/batsman_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_3sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Batsman Name"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toStartOf="@id/vs"
+                    app:layout_constraintStart_toEndOf="@id/team1_btn"
+                    app:layout_constraintTop_toBottomOf="@+id/line"
+                    tools:text="Team 1" />
+
+                <TextView
+                    android:id="@+id/batsman_run"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_3sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text=": 0 run"
+                    android:textColor="@color/primary_color_dark"
+                    android:textSize="7sp"
+                    android:textStyle="bold"
+
+                    app:layout_constraintStart_toEndOf="@id/batsman_name"
+                    app:layout_constraintTop_toBottomOf="@+id/line"
+                    app:layout_constraintBottom_toBottomOf="@id/batsman_name"
+                    tools:text="Team 1" />
+
+
+                <View
+                    android:id="@+id/team2_btn"
+                    android:layout_width="@dimen/_2sdp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@color/primary_color"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/line" />
+
+                <TextView
+                    android:id="@+id/bowler_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_3sdp"
+                    android:text="Bowler name"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toStartOf="@id/team2_btn"
+                    app:layout_constraintStart_toEndOf="@id/vs"
+                    app:layout_constraintTop_toBottomOf="@+id/line"
+                   />
+
+                <TextView
+                    android:id="@+id/vs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_3sdp"
+                    android:text="--"
+                    android:textColor="@color/red"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@id/bowler_name"
+                    app:layout_constraintStart_toEndOf="@id/batsman_name"
+                    app:layout_constraintTop_toBottomOf="@+id/line"
+
+                    />
+
+                <TextView
+                    android:id="@+id/non_stricker_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_3sdp"
+                    android:text="Non Stricker name"
+                    android:textColor="@color/black"
+                    android:textSize="8sp"
+
+                    app:layout_constraintStart_toEndOf="@id/team1_btn"
+app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/batsman_name"
+                    app:layout_constraintEnd_toEndOf="@id/batsman_name"
+                    />
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@color/light_gray"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_4sdp"
+                app:layout_constraintTop_toBottomOf="@id/top_layout">
+
+
+
+                <TextView
+                    android:id="@+id/wicket_playr_out"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:text=""
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold"
+
+                   app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Player out"
+                    />
+
+
+                <TextView
+                    android:id="@+id/wicket_fielders"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:text=""
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold"
+                    tools:text="Player caugt"
+
+                   app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+                <TextView
+                    android:id="@+id/wicket_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:text=""
+                    android:background="@drawable/text_bg"
+                    android:backgroundTint="@color/red"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold"
+                    tools:text="Caught"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:layout_constraintTop_toBottomOf="@id/wicket_playr_out"
+                    />
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
