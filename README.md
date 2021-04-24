@@ -2,7 +2,7 @@
 
 To run the application just clone the repository, open it in android studio and build the project.
 
-*  Made for Flipr Hackathon
+*  Made for Flipr Hackathon 8.0
 
 
 
